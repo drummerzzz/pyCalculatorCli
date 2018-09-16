@@ -13,10 +13,10 @@ def multDiv(operador, num1, num2):
     else:
         return float(num1) / float(num2)
 
-
+operation='(5+5)*(5+5)'
 operadores = []
 numeros = []
-#tmp = ''
+tmp = ''
 
 
 def calculadora(operador='*/'):
@@ -49,8 +49,6 @@ def calculadora(operador='*/'):
         return calculadora(operador='+-')
 
     return result
-
-operation='5*5+(5*(5+5))'
 
 def precedence():
     global operation
@@ -87,8 +85,9 @@ def precedence():
                 elif i in ',.':
                     tmp = tmp.replace(i,'.')
                 else:
-                    os.system("clear")
-                    print('Operação invalida!\nSomente os operados +/*- são permitidos\n')
+                    Sos.system("clear")
+                    print('1')
+                    print('Operação invalida!\nSomente os operados +/*- e ( ) são permitidos\n')
                     validation = False
                     break
                 
@@ -105,20 +104,19 @@ def precedence():
                 precedence()
             
 
-
-
-
 def main():
     global operation
     operation = input('Digite a operação:\n')
-    if operation.find('('):
-        precedence() # chamo a funcao de verificação e tratamento de expresoes com parentes ( )
     
+    if operation.find('(') != -1:
+        # chamo a funcao de verificação e tratamento de expresoes com parentes ( )
+        precedence()
     global operadores
     global numeros
     validation = True
 
     for i in operation:
+        print(operation)
         if not i.isdigit():
             if not i in ',.' and i in '+-*/':
                 operadores.append(i) # adiciono um operador na lista
@@ -126,13 +124,13 @@ def main():
             elif i in ',.':
                 operation = operation.replace(i,'.')
             else:
-                os.system("clear")
-                print('Operação invalida!\nSomente os operados +/*- são permitidos\n')
+                #os.system("clear")
+                print('2')
+                print('Operação invalida!\nSomente os operados +/*- e ( ) são permitidos\n')
                 validation = False
                 break
                 
     if validation:
-        os.system("clear")
         numeros = operation.split(' ') # crio uma  lista contendo somente os numeros 
         print(numeros,operadores)
         result = calculadora('*/')
@@ -140,7 +138,8 @@ def main():
             result = calculadora('+-')
         print(result)
     else:
-        os.system("python calculadoraSimple.py")
+        pass
+        #main()
 
 
 os.system('clear')
