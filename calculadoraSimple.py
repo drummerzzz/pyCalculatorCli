@@ -86,7 +86,6 @@ def precedence():
                     tmp = tmp.replace(i,'.')
                 else:
                     Sos.system("clear")
-                    print('1')
                     print('Operação invalida!\nSomente os operados +/*- e ( ) são permitidos\n')
                     validation = False
                     break
@@ -116,7 +115,6 @@ def main():
     validation = True
 
     for i in operation:
-        print(operation)
         if not i.isdigit():
             if not i in ',.' and i in '+-*/':
                 operadores.append(i) # adiciono um operador na lista
@@ -125,7 +123,6 @@ def main():
                 operation = operation.replace(i,'.')
             else:
                 #os.system("clear")
-                print('2')
                 print('Operação invalida!\nSomente os operados +/*- e ( ) são permitidos\n')
                 validation = False
                 break
