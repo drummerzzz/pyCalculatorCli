@@ -76,7 +76,7 @@ def precedence():
         global numeros
         #global tmp
         tmp = operation[opening+1: closing]
-        print(operation, numeros, operadores,tmp)
+       # print(operation, numeros, operadores,tmp)
         for i in tmp:
             if not i.isdigit():
                 if i in '+-*/':
@@ -135,8 +135,7 @@ def main():
             result = calculadora('+-')
         print(result)
     else:
-        pass
-        #main()
+        main()
 
 
 os.system('clear')
